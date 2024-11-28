@@ -1,0 +1,28 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Frameworks{% if title %} - {{ title }}{% endif %}</title>
+</head>
+<body>
+    <nav>
+        <ul style="list-style: none; display: flex; gap: 15px; padding: 0; margin: 0;">
+            <li><a href="/" style="text-decoration: none;">Головна</a></li>
+            <li><a href="/student/">Учні</a></li>
+            <li><a href="/subject/">Предмети</a></li>
+            <li><a href="/exam/">Іспити</a></li>
+            <li><a href="/form/">Форма для додання іспитів</a></li>
+            <li><a href="/exforsub/">Іспити за предметом</a></li>
+            <li><a href="/stforex/">Студенти за іспитом</a></li>
+            <li><a href="/first_five/">Перші п'ять</a></li>
+        </ul>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

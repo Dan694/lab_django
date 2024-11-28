@@ -1,0 +1,42 @@
+{% extends "project/layout.jinja" %}
+{% block body %}
+<h1>Студенти, які складали іспит</h1>
+
+{% if exams %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ім'я студента</th>
+                <th>Прізвище студента</th>
+                <th>Назва предмета</th>
+                <th>Дата іспиту</th>
+                <th>Оцінка</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exams %}
+                <tr>
+                    <td>{{ exam.student.first_name }}</td>
+                    <td>{{ exam.student.last_name }}</td>
+                    <td>{{ exam.subject.name }}</td>
+                    <td>{{ exam.date }}</td>
+                    <td>{{ exam.mark }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Не знайдено студентів, які складали іспит із заданим предметом і датою.</p>
+{% endif %}
+
+<form method="GET" action="">
+    <label for="exam_typ">Назва предмета:</label>
+    <input type="text" id="exam_typ" name="subject" placeholder="Наприклад: Математика">
+
+    <label for="date">Дата проведення:</label>
+    <input type="date" id="date" name="date">
+
+    <input type="submit" value="Фільтрувати">
+</form>
+
+{% endblock %}

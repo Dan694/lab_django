@@ -1,0 +1,9 @@
+{% extends "project/layout.jinja" %}
+{% block body %}
+<h1>Form</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Додати іспит</button>
+</form>
+{%endblock%}

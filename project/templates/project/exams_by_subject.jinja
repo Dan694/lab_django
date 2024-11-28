@@ -1,0 +1,44 @@
+{% extends "project/layout.jinja" %}
+{% block body %}
+<h1>Іспити за обраним предметом</h1>
+
+<form method="GET" action="">
+    <label for="subject">Виберіть предмет:</label>
+    <select id="subject" name="subject">
+        <option value="">-- Оберіть предмет --</option>
+        {% for subject in subjects %}
+            <option value="{{ subject.name }}" {% if subject.name == selected_subject %}selected{% endif %}>
+                {{ subject.name }}
+            </option>
+        {% endfor %}
+    </select>
+    <button type="submit">Показати</button>
+</form>
+
+{% if exams %}
+    <h2>Результати іспитів для предмета: {{ selected_subject }}</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ім'я студента</th>
+                <th>Прізвище студента</th>
+                <th>Дата іспиту</th>
+                <th>Оцінка</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exams %}
+                <tr>
+                    <td>{{ exam.student.first_name }}</td>
+                    <td>{{ exam.student.last_name }}</td>
+                    <td>{{ exam.date }}</td>
+                    <td>{{ exam.mark }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Оберіть предмет, щоб побачити іспити.</p>
+{% endif %}
+
+{% endblock %}

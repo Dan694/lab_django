@@ -1,0 +1,28 @@
+{% extends "project/layout.jinja" %}
+{% block body %}
+<h1>Студенти</h1>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ім'я студента</th>
+                <th>Прізвище студента</th>
+                <th>Дата народження</th>
+                <th>Стать</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.last_name }}</td>
+                    <td>{{ student.birth_date }}</td>
+                    <td>{{ student.gender }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

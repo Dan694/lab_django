@@ -1,0 +1,26 @@
+{% extends "project/layout.jinja" %}
+{% block body %}
+<h1>Предмети</h1>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Семестр</th>
+                <th>Кредити/th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject in subjects %}
+                <tr>
+                    
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.semester }}</td>
+                    <td>{{ subject.credits }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
